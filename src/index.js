@@ -1,33 +1,51 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+function Card(props){
+// React functional componet to be called
+  return(
+    <div className="my-style">
+       <h2>{props.name}</h2>
+        <img
+          src={props.img}
+          alt="avatar_img"
+        />
+        <p>{props.tel}</p>
+        <p>{props.email}</p>
+    </div>
+  )
+}
 ReactDOM.render(
-  <div>
-    <h1>My Contacts</h1>
+	<div>
+		<h1>My Contacts</h1>
+		{/* passing React properties to the main funtion to be accesed as an object while the funtion that returns the html element */}
+		<Card 
+			name="Beyonce" 
+			img="https://blackhistorywall.files.wordpress.com/2010/02/picture-device-independent-bitmap-119.jpg" 
+			tel="+123 456 789"
+			email="b@beyonce.com"
 
-    <h2>Beyonce</h2>
-    <img
-      src="https://blackhistorywall.files.wordpress.com/2010/02/picture-device-independent-bitmap-119.jpg"
-      alt="avatar_img"
-    />
-    <p>+123 456 789</p>
-    <p>b@beyonce.com</p>
+		/>
+		<Card
+			name="Boaz" 
+			img="data:image/jpeg;base64,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" 
+			tel="+987 765 431"
+			email="person@po.com"
+		/>
+		<Card
+			name="Jack Bauer" 
+			img="https://pbs.twimg.com/profile_images/625247595825246208/X3XLea04_400x400.jpg" 
+			tel="+987 654 32"
+			email="jack@nowhere.com"
+		/>
 
-    <h2>Jack Bauer</h2>
-    <img
-      src="https://pbs.twimg.com/profile_images/625247595825246208/X3XLea04_400x400.jpg"
-      alt="avatar_img"
-    />
-    <p>+987 654 321</p>
-    <p>jack@nowhere.com</p>
-
-    <h2>Chuck Norris</h2>
-    <img
-      src="https://i.pinimg.com/originals/e3/94/47/e39447de921955826b1e498ccf9a39af.png"
-      alt="avatar_img"
-    />
-    <p>+918 372 574</p>
-    <p>gmail@chucknorris.com</p>
-  </div>,
+		<Card
+			name="Chuck Norris" 
+			img="https://i.pinimg.com/originals/e3/94/47/e39447de921955826b1e498ccf9a39af.png" 
+			tel="+918 372 574"
+			email="gmail@chucknorris.com"
+		/>
+    </div>,
+	// where the react elemnt is going to be rendere
   document.getElementById("root")
 );
